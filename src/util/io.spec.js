@@ -25,3 +25,14 @@ it('should execute the writeFile method', () => {
     //expect(fs.writeFile).toBeCalled();
     expect(fs.writeFile).toBeCalledWith(testFileName, testData); //The arguments order doesn't matter
 });
+
+it('should return a promise that resolves to no value if called correctly', () => {
+    const testData = 'Test';
+    const testFileName = 'test.txt';
+
+    writeData(testData, testFileName);//Because there is fs.writeFile inside of it, it will expect later that it will be called, but with mocks, so it won't execute the third-party code, but only our code
+    
+    return expect(writeData(testData, testFileName)).resolves.toBeUndefined();
+    //expect(fs.writeFile).toBeCalled();
+    //expect(fs.writeFile).toBeCalledWith(testFileName, testData); //The arguments order doesn't matter
+});

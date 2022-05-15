@@ -7,6 +7,8 @@ describe('generateReportData()', () => {
         //Arrange
         const logger = vi.fn();
 
+        //logger.mockImplementationOnce(() => {});
+
         //Act
         generateReportData(logger);
 
